@@ -1,0 +1,37 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "sex",
+  "url": "http://ga4gh.org/fhir/phenopackets/CodeSystem/sex",
+  "version": "1.0.0",
+  "name": "Sex",
+  "status": "active",
+  "experimental": false,
+  "publisher": "GA4GH",
+  "description": "An enumeration used to represent the sex of an individual. This element does not represent gender identity, but instead represents \"Administrative sex\", which is used to indicate the sex a person has listed with their insurance company.",
+  "caseSensitive": false,
+  "valueSet": "http://ga4gh.org/fhir/phenopackets/CodeSystem/sex?vs",
+  "title": "Sex",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "UNKNOWN_SEX",
+      "display": "Unknown Sex",
+      "definition": "Unknown Sex"
+    },
+    {
+      "code": "FEMALE",
+      "display": "Female",
+      "definition": "Female"
+    },
+    {
+      "code": "MALE",
+      "display": "Male",
+      "definition": "Male"
+    },
+    {
+      "code": "OTHER_SEX",
+      "display": "Other Sex",
+      "definition": "Other Sex"
+    }
+  ]
+}

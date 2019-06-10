@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="murine-allele" />
+  <url value="http://ga4gh.org/fhir/phenopackets/StructureDefinition/murine-allele" />
+  <version value="1.0.0" />
+  <name value="MurineAllele" />
+  <title value="Murine Allele" />
+  <status value="draft" />
+  <description value="Specifically for encoding mouse or rat alleles in accordance with the International Committee on Standardized Genetic Nomenclature for Mice." />
+  <fhirVersion value="4.0.0" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Basic"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Basic"/>
+  <differential>
+
+    <element id="Basic.extension">
+      <path value="Basic.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    
+    <element id="Basic.extension:id">
+      <path value="Basic.extension" />
+      <label value="Basic.extension.id"/>
+      <short value="Variant identifier" />
+      <definition value="An arbitrary identifier for this variant instance." />
+      <min value="0" />
+      <max value="1" />
+      <sliceName value="id" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="id" />
+      </type>
+    </element>
+
+    <element id="Basic.extension:gene">
+      <path value="Basic.extension" />
+      <label value="Basic.extension.gene"/>
+      <short value="Gene" />
+      <definition value="Identifier for gene affected by variant. eg Fbn1" />
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="gene" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+
+    <element id="Basic.extension:allele_code">
+      <path value="Basic.extension" />
+      <label value="Basic.extension.allele_code"/>
+      <short value="Allele Code" />
+      <definition value="Allele name or lab code according to the International Committee on Standardized Genetic Nomenclature for Mice. eg tm1Hcd" />
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="allele_code" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+
+  </differential>
+</StructureDefinition>

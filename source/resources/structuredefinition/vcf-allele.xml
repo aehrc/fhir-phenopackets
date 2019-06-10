@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="vcf-allele" />
+  <url value="http://ga4gh.org/fhir/phenopackets/StructureDefinition/vcf-allele" />
+  <version value="1.0.0" />
+  <name value="VCFAllele" />
+  <title value="VCF Allele" />
+  <status value="draft" />
+  <description value="This element is used to describe an allele according to the Variant Call Format (VCF)." />
+  <fhirVersion value="4.0.0" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Basic"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Basic"/>
+  <differential>
+
+    <element id="Basic.extension">
+      <path value="Basic.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    
+    <element id="Basic.extension:genome_assembly">
+      <path value="Basic.extension" />
+      <label value="Basic.extension.genome_assembly"/>
+      <short value="Reference genome identifier" />
+      <definition value="Unique identifier for reference genome assembly used in calling variant. eg GRCh38" />
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="genome_assembly" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+
+    <element id="Basic.extension:id">
+      <path value="Basic.extension" />
+      <label value="Basic.extension.id"/>
+      <short value="Variant identifier" />
+      <definition value="An arbitrary identifier for this variant instance." />
+      <min value="0" />
+      <max value="1" />
+      <sliceName value="id" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="id" />
+      </type>
+    </element>
+
+    <element id="Basic.extension:chr">
+      <path value="Basic.extension" />
+      <label value="Basic.extension.chr"/>
+      <short value="Chromosome" />
+      <definition value="Chromosome/contig identifier on which variant is found. eg chr2" />
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="chr" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+
+    <element id="Basic.extension:pos">
+      <path value="Basic.extension" />
+      <label value="Basic.extension.pos"/>
+      <short value="Base position" />
+      <definition value="Base position indicating start of variant site. eg 134327882" />
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="pos" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="integer" />
+      </type>
+    </element>
+
+    <element id="Basic.extension:ref">
+      <path value="Basic.extension" />
+      <label value="Basic.extension.ref"/>
+      <short value="Reference allele" />
+      <definition value="The reference allele at the variant site (according to reference sequence or normal sample sequence). eg A" />
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="ref" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+
+    <element id="Basic.extension:alt">
+      <path value="Basic.extension" />
+      <label value="Basic.extension.alt"/>
+      <short value="Alternate allele" />
+      <definition value="The alternate/variant allele at the variant site. eg C" />
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="alt" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+
+    <element id="Basic.extension:info">
+      <path value="Basic.extension" />
+      <label value="Basic.extension.info"/>
+      <short value="VCF INFO field" />
+      <definition value="The INFO field from the VCF file. In general, the info field should only be used to report structural variants and it is not expected that the Phenopacket will report contents of the info field for single nucleotide and other small variants. eg END=43500;SVTYPE=DUP;CHR2=1;SVLEN=29000;" />
+      <min value="0" />
+      <max value="1" />
+      <sliceName value="info" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+
+  </differential>
+</StructureDefinition>

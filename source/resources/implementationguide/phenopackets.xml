@@ -18,12 +18,12 @@
     <packageId value="ga4gh.fhir.phenopackets"/>
     <fhirVersion value="4.0.0"/>
     <definition>
-        <resource>
+        <!-- <resource>
             <reference>
                 <reference value="StructureDefinition/coded-onset"/>
                 <display value="Coded Onset"/>
             </reference>
-        </resource>
+        </resource> -->
         <resource>
             <reference>
                 <reference value="StructureDefinition/phenotype"/>
@@ -38,8 +38,56 @@
         </resource>
         <resource>
             <reference>
+                <reference value="StructureDefinition/hgvs-allele"/>
+                <display value="HGVS Allele"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/vcf-allele"/>
+                <display value="VCF Allele"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/spdi-allele"/>
+                <display value="SPDI Allele"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/iscn-allele"/>
+                <display value="ISCN Allele"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/murine-allele"/>
+                <display value="Murine Allele"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
                 <reference value="CodeSystem/karyotypic-sex"/>
                 <display value="Karyotypic Sex Code System"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="CodeSystem/document-type"/>
+                <display value="Document Type Code System"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="CodeSystem/sex"/>
+                <display value="Sex Code System"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="CodeSystem/variant-format"/>
+                <display value="Variant Format Code System"/>
             </reference>
         </resource>
         <page>

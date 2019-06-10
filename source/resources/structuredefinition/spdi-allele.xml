@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="spdi-allele" />
+  <url value="http://ga4gh.org/fhir/phenopackets/StructureDefinition/spdi-allele" />
+  <version value="1.0.0" />
+  <name value="SPDIAllele" />
+  <title value="SPDI Allele" />
+  <status value="draft" />
+  <description value="This element is used to describe an allele according to the Sequence Position Deletion Insertion (SPDI) notation." />
+  <fhirVersion value="4.0.0" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Basic"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Basic"/>
+  <differential>
+
+    <element id="Basic.extension">
+      <path value="Basic.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    
+    <element id="Basic.extension:id">
+      <path value="Basic.extension" />
+      <label value="Basic.extension.id"/>
+      <short value="Variant identifier" />
+      <definition value="An arbitrary identifier for this variant instance." />
+      <min value="0" />
+      <max value="1" />
+      <sliceName value="id" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="id" />
+      </type>
+    </element>
+
+    <element id="Basic.extension:seq_id">
+      <path value="Basic.extension" />
+      <label value="Basic.extension.seq_id"/>
+      <short value="Sequence identifier" />
+      <definition value="Unique identifier for reference sequence used in calling variant. eg Seq1" />
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="seq_id" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+
+    <element id="Basic.extension:position">
+      <path value="Basic.extension" />
+      <label value="Basic.extension.position"/>
+      <short value="Base position" />
+      <definition value="Base position indicating start of variant site. eg 4" />
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="position" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="integer" />
+      </type>
+    </element>
+
+    <element id="Basic.extension:deleted_sequence">
+      <path value="Basic.extension" />
+      <label value="Basic.extension.deleted_sequence"/>
+      <short value="Deleted sequence" />
+      <definition value="Sequence that was deleted from the reference sequence. Can be empty in the case of a pure insertion. eg A" />
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="deleted_sequence" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+
+    <element id="Basic.extension:inserted_sequence">
+      <path value="Basic.extension" />
+      <label value="Basic.extension.inserted_sequence"/>
+      <short value="Inserted sequence" />
+      <definition value="Replacement sequence that was inserted. Can be empty in the case of a pure deletion. eg G" />
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="inserted_sequence" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+
+  </differential>
+</StructureDefinition>

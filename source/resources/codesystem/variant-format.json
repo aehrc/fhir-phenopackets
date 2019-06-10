@@ -1,0 +1,42 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "variant-format",
+  "url": "http://ga4gh.org/fhir/phenopackets/CodeSystem/variant-format",
+  "version": "1.0.0",
+  "name": "Variant Format",
+  "status": "active",
+  "experimental": false,
+  "publisher": "GA4GH",
+  "description": "This code system describes the variant format for a candidate variant or diagnosed causative variant. There is currently no standard variant nomenclature that can represent all kinds of genetic variation that is relevant to human medicine, science, and model organisms.",
+  "caseSensitive": false,
+  "valueSet": "http://ga4gh.org/fhir/phenopackets/CodeSystem/variant-format?vs",
+  "title": "Variant Format",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "HgvsAllele",
+      "display": "HGVS Allele",
+      "definition": "Variant allele is described according to the nomenclature of the Human Genome Variation Society (HGVS)."
+    },
+    {
+      "code": "VcfAllele",
+      "display": "VCF Allele",
+      "definition": "Variant allele is decribed using the Variant Call Format (VCF)."
+    },
+    {
+      "code": "SpdiAllele",
+      "display": "SPDI Allele",
+      "definition": "Variant allele is described using the Sequence Position Deletion Insertion (SPDI) notation."
+    },
+    {
+      "code": "IscnAllele",
+      "display": "ISCN Allele",
+      "definition": "Variant allele is described according to the International System for Human Cytogenetic Nomenclature (ISCN)."
+    },
+    {
+      "code": "MurineAllele",
+      "display": "Murine Allele",
+      "definition": "Specifically for encoding mouse or rat alleles in accordance with the International Committee on Standardized Genetic Nomenclature for Mice."
+    }
+  ]
+}

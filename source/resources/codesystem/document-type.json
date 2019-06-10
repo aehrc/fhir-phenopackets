@@ -11,6 +11,7 @@
   "caseSensitive": false,
   "valueSet": "http://ga4gh.org/fhir/phenopackets/CodeSystem/document-type?vs",
   "title": "Document Type",
+  "content": "complete",
   "concept": [
     {
       "code": "phenopacket",

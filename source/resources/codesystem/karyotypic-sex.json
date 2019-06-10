@@ -11,6 +11,7 @@
   "caseSensitive": false,
   "valueSet": "http://ga4gh.org/fhir/phenopackets/CodeSystem/karyotypic-sex?vs",
   "title": "Karyotypic Sex",
+  "content": "complete",
   "concept": [
     {
       "code": "UNKNOWN_KARYOTYPE",
