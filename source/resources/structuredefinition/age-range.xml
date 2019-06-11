@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="age-range" />
+  <url value="http://ga4gh.org/fhir/phenopackets/StructureDefinition/age-range" />
+  <version value="1.0.0" />
+  <name value="AgeRange" />
+  <title value="Age Range" />
+  <status value="draft" />
+  <description value="This element is intended to be used when the age of a subject is represented by a bin, eg 5-10 years. Bins such as this are used in some situations in order to protect the privacy of study participants, whose age is then represented by bins such as 45-49 years, 50-54 years, 55-59 years, etc." />
+  <fhirVersion value="4.0.0" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Basic"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Basic"/>
+  <differential>
+
+    <element id="Basic.extension">
+      <path value="Basic.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    
+    <element id="Basic.extension:start">
+      <path value="Basic.extension" />
+      <label value="Basic.extension.start"/>
+      <short value="The start of the age range." />
+      <definition value="A Phenopackets Age object used to represent the start of the age range. For instance, an Age object with age=P45Y represents the minimum age of 45 years old." />
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="start" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="Age" />
+      </type>
+    </element>
+
+    <element id="Basic.extension:end">
+      <path value="Basic.extension" />
+      <label value="Basic.extension.end" />
+      <short value="The end of the age range." />
+      <definition value="A Phenopackets Age object used to represent the end of the age range. For instance, an Age object with age=P49Y represents the maximum age of 49 years old."/>
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="end" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="Age" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

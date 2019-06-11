@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="hts-file" />
+  <url value="http://ga4gh.org/fhir/phenopackets/StructureDefinition/hts-file" />
+  <version value="1.0.0" />
+  <name value="HtsFile" />
+  <title value="Hts File" />
+  <status value="draft" />
+  <description value="Describes a file in one of the high-throughput sequencing (HTS) formats" />
+  <fhirVersion value="4.0.0" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Basic"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Basic"/>
+  <differential>
+
+    <element id="Basic.extension">
+      <path value="Basic.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    
+    <element id="Basic.extension:hts_format">
+      <path value="Basic.extension" />
+      <label value="Basic.extension.hts_format"/>
+      <short value="Indicates which format the file is in" />
+      <definition value="Indicates which HTS format this file is in. File formats are represented by codes in the HtsFormat Code System." />
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="hts_format" />
+      <sliceIsConstraining value="false" />
+      <code>
+        <system value="http://ga4gh.org/fhir/phenopackets/CodeSystem/hts-format" />
+      </code>
+      <type>
+        <code value="code" />
+      </type>
+    </element>
+
+    <element id="Basic.extension:genome_assembly">
+      <path value="Basic.extension" />
+      <label value="Basic.extension.genome_assembly" />
+      <short value="The genome assembly the contents of this file was called against." />
+      <definition value="Used to denote the genome assembly that was used in the construction of the HTS file. We recommend using the Genome Reference Consortium nomenclature. e.g. 'GRCh37', 'GRCh38'"/>
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="genome_assembly" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+
+    <element id="Basic.extension:individual_to_sample_identifiers">
+      <path value="Basic.extension" />
+      <label value="Basic.extension.individual_to_sample_identifiers" />
+      <short value="Map of identifiers mapping an individual to a sample in the file" />
+      <definition value="A map of identifiers mapping an individual referred to in the Phenopacket to a sample in the file. The key values must correspond to the Individual::id for the individuals in the message, the values must map to the samples in the file."/>
+      <min value="0" />
+      <max value="1" />
+      <sliceName value="individual_to_sample_identifiers" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+
+    <element id="Basic.extension:file">
+      <path value="Basic.extension" />
+      <label value="Basic.extension.file" />
+      <short value="File object containing path/uri to HTS File" />
+      <definition value="A File object, containing the description and path/uri to the HTS File"/>
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="file" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="File" />
+      </type>
+    </element>
+
+  </differential>
+</StructureDefinition>

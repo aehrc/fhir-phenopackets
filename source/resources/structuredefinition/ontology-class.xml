@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="ontology-class" />
+  <url value="http://ga4gh.org/fhir/phenopackets/StructureDefinition/ontology-class" />
+  <version value="1.0.0" />
+  <name value="OntologyClass" />
+  <title value="Ontology Class" />
+  <status value="draft" />
+  <description value="This element is used to represent classes (terms) from ontologies, and is used in many places throughout the Phenopacket standard. It is a simple, two element message that represents the identifier and the label of an ontology class." />
+  <fhirVersion value="4.0.0" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="CodeableConcept"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/CodeableConcept"/>
+  <differential>
+
+    <element id="CodeableConcept.extension">
+      <path value="CodeableConcept.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    
+    <element id="CodeableConcept.extension:id">
+      <path value="CodeableConcept.extension" />
+      <label value="CodeableConcept.extension.id"/>
+      <short value="A CURIE-style identifier for this ontlogy term." />
+      <definition value="The ID should be a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690, i.e., the primary key for the ontology class." />
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="id" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="id" />
+      </type>
+    </element>
+
+    <element id="CodeableConcept.extension:label">
+      <path value="CodeableConcept.extension" />
+      <label value="CodeableConcept.extension.label" />
+      <short value="Corresponding label/name for ontological term denoted by the id." />
+      <definition value="The label should be the corresponding class name/label for the ontological term denoted by the id. eg 'Conspicuously happy disposition,' 'absent vibrissae,' 'ear'"/>
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="label" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

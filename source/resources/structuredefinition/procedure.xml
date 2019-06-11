@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="procedure" />
+  <url value="http://ga4gh.org/fhir/phenopackets/StructureDefinition/procedure" />
+  <version value="1.0.0" />
+  <name value="Procedure" />
+  <title value="Procedure" />
+  <status value="draft" />
+  <description value="Represents a clinical procedure performed on a subject in order to extract a biosample" />
+  <fhirVersion value="4.0.0" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Procedure"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+  <differential>
+
+    <element id="Procedure.extension">
+      <path value="Procedure.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    
+    <element id="Procedure.extension:code">
+      <path value="Procedure.extension" />
+      <label value="Procedure.extension.code"/>
+      <short value="The clinical procedure performed on a subject" />
+      <definition value="This attribute represents a clinical procedure performed on a subject, formatted as an OntologyClass object. For instance, a soft palate biopsy would be represented with an id of 'NCIT:C51585' and a label of 'Biopsy of Soft Palate'" />
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="code" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="OntologyClass" />
+      </type>
+    </element>
+
+    <element id="Procedure.extension:body_site">
+      <path value="Procedure.extension" />
+      <label value="Procedure.extension.body_site"/>
+      <short value="Specifies the body site that the sample was collected from" />
+      <definition value="Optionally specifies the body site that the sample was collected from, formatted as an OntologyClass object. For instance, a biopsy collected from the skin of the forearm would be represented with an id of 'UBERON:0003403' and a label of 'skin of forearm'" />
+      <min value="0" />
+      <max value="1" />
+      <sliceName value="body_site" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="OntologyClass" />
+      </type>
+    </element>
+
+  </differential>
+</StructureDefinition>

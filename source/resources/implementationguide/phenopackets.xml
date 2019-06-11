@@ -26,6 +26,78 @@
         </resource> -->
         <resource>
             <reference>
+                <reference value="StructureDefinition/ontology-class"/>
+                <display value="Ontology Class"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/external-reference"/>
+                <display value="External Reference"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/age"/>
+                <display value="Age"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/age-range"/>
+                <display value="Age Range"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/evidence"/>
+                <display value="Evidence"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/file"/>
+                <display value="File"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/hts-file"/>
+                <display value="Hts File"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/gene"/>
+                <display value="Gene"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/geolocation"/>
+                <display value="Geolocation"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/metadata"/>
+                <display value="Metadata"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/pedigree"/>
+                <display value="Pedigree"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/person"/>
+                <display value="Person"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
                 <reference value="StructureDefinition/phenotype"/>
                 <display value="Phenotype"/>
             </reference>
@@ -34,6 +106,24 @@
             <reference>
                 <reference value="StructureDefinition/phenotype-modifier"/>
                 <display value="Phenotype Modifier"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/procedure"/>
+                <display value="Procedure"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/resource"/>
+                <display value="Resource"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/variant"/>
+                <display value="Variant"/>
             </reference>
         </resource>
         <resource>
@@ -82,6 +172,18 @@
             <reference>
                 <reference value="CodeSystem/sex"/>
                 <display value="Sex Code System"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="CodeSystem/hts-format"/>
+                <display value="Hts Format"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="CodeSystem/affected-status"/>
+                <display value="Affected Status"/>
             </reference>
         </resource>
         <resource>

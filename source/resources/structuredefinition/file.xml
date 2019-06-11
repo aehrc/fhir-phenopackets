@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="file" />
+  <url value="http://ga4gh.org/fhir/phenopackets/StructureDefinition/file" />
+  <version value="1.0.0" />
+  <name value="File" />
+  <title value="File" />
+  <status value="draft" />
+  <description value="Phenopackets can be used to hold phenotypic information that can inform the analysis of sequencing data in VCF format as well as other high-throughput sequencing (HTS) or other data types." />
+  <fhirVersion value="4.0.0" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Basic"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Basic"/>
+  <differential>
+
+    <element id="Basic.extension">
+      <path value="Basic.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    
+    <element id="Basic.extension:path">
+      <path value="Basic.extension" />
+      <label value="Basic.extension.path"/>
+      <short value="Full system path to the file" />
+      <definition value="The full system path to the file. e.g. '/data/genomes/file1.vcf.gz'. A File MUST specify a path or uri, or both." />
+      <min value="0" />
+      <max value="1" />
+      <sliceName value="path" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+
+    <element id="Basic.extension:uri">
+      <path value="Basic.extension" />
+      <label value="Basic.extension.uri" />
+      <short value="URI for the file" />
+      <definition value="Unique resource identifier to access and/or download file. e.g. 'file://data/genomes/file1.vcf.gz', 'https://opensnp.org/data/60.23andme-exome-vcf.231?1341012444'. A File MUST specify a path or uri, or both."/>
+      <min value="0" />
+      <max value="1" />
+      <sliceName value="uri" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+
+    <element id="Basic.extension:description">
+      <path value="Basic.extension" />
+      <label value="Basic.extension.description" />
+      <short value="File description" />
+      <definition value="A description of the file contents"/>
+      <min value="0" />
+      <max value="1" />
+      <sliceName value="description" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

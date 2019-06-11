@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="person" />
+  <url value="http://ga4gh.org/fhir/phenopackets/StructureDefinition/person" />
+  <version value="1.0.0" />
+  <name value="Person" />
+  <title value="Person" />
+  <status value="draft" />
+  <description value="Represents a person as defined in a pedigree (PED) file" />
+  <fhirVersion value="4.0.0" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Patient"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+  <differential>
+
+    <element id="Patient.extension">
+      <path value="Patient.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    
+    <element id="Patient.extension:family_id">
+      <path value="Patient.extension" />
+      <label value="Patient.extension.family_id"/>
+      <short value="Family identifier" />
+      <definition value="Unique identifier for the family of which this person is a part of. e.g. FAM001" />
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="family_id" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="id" />
+      </type>
+    </element>
+
+    <element id="Patient.extension:individual_id">
+      <path value="Patient.extension" />
+      <label value="Patient.extension.individual_id"/>
+      <short value="Individual identifier" />
+      <definition value="Unique identifier for this person/sample. The combination of family and individual IDs should uniquely identify each person/row in the PED file." />
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="individual_id" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="id" />
+      </type>
+    </element>
+
+    <element id="Patient.extension:paternal_id">
+      <path value="Patient.extension" />
+      <label value="Patient.extension.paternal_id"/>
+      <short value="Individual ID of this person's father" />
+      <definition value="The Individual ID of the father of this person (or 0 if the father is not represented in the pedigree)" />
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="paternal_id" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="id" />
+      </type>
+    </element>
+
+    <element id="Patient.extension:maternal_id">
+      <path value="Patient.extension" />
+      <label value="Patient.extension.maternal_id"/>
+      <short value="Individual ID of this person's mother" />
+      <definition value="The Individual ID of the mother of this person (or 0 if the mother is not represented in the pedigree)" />
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="maternal_id" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="id" />
+      </type>
+    </element>
+
+    <element id="Patient.extension:sex">
+      <path value="Patient.extension" />
+      <label value="Patient.extension.sex"/>
+      <short value="Biological sex of person" />
+      <definition value="Biological sex of this person, as coded by the Sex Code System. Sex enumeration corresponds to the conventional PED codes." />
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="sex" />
+      <sliceIsConstraining value="false" />
+      <code>
+        <system value="http://ga4gh.org/fhir/phenopackets/CodeSystem/sex" />
+      </code>
+      <type>
+        <code value="code" />
+      </type>
+    </element>
+
+    <element id="Patient.extension:affected_status">
+      <path value="Patient.extension" />
+      <label value="Patient.extension.affected_status"/>
+      <short value="Indicates whether the person is affected by the condition being studied" />
+      <definition value="The affected_status attribute indicates whether the person is affected by the condition being studied, as coded by the Affected Status Code System" />
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="affected_status" />
+      <sliceIsConstraining value="false" />
+      <code>
+        <system value="http://ga4gh.org/fhir/phenopackets/CodeSystem/affected-status" />
+      </code>
+      <type>
+        <code value="code" />
+      </type>
+    </element>
+
+  </differential>
+</StructureDefinition>

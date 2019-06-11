@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="variant" />
+  <url value="http://ga4gh.org/fhir/phenopackets/StructureDefinition/variant" />
+  <version value="1.0.0" />
+  <name value="Variant" />
+  <title value="Variant" />
+  <status value="draft" />
+  <description value="This element should be used to describe candidate variants or diagnosed causative variants. There is currently no standard variant nomenclature that can represent all kinds of genetic variation that is relevant to human medicine, science, and model organisms. Variant messages contain an allele, the zygosity of the allele, and, and a background element that can be used to represent the genetic background of an animal model." />
+  <fhirVersion value="4.0.0" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Basic"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Basic"/>
+  <differential>
+
+    <element id="Basic.extension">
+      <path value="Basic.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    
+    <element id="Basic.extension:allele">
+      <path value="Basic.extension" />
+      <label value="Basic.extension.allele"/>
+      <short value="Variant allele object" />
+      <definition value="This attribute contains a variant allele object, formatted according to one of the accepted allele formats [HGVS, VCF, SPDI, ISCN, Murine]. There is a separate allele class for each allele format. The codes for each allele format are delineated in the Variant Format Code System." />
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="allele" />
+      <sliceIsConstraining value="false" />
+      <code>
+        <system value="http://ga4gh.org/fhir/phenopackets/CodeSystem/variant-format" />
+      </code>
+      <type>
+        <code value="code" />
+      </type>
+    </element>
+
+    <element id="Basic.extension:zygosity">
+      <path value="Basic.extension" />
+      <label value="Basic.extension.zygosity"/>
+      <short value="The zygosity of the variant" />
+      <definition value="The zygosity of the variant as determined in all of the samples represented in this Phenopacket is represented using a list of terms taken from the Genotype Ontology (GENO). For instance, if a variant affects one of two alleles at a certain locus, we could record the zygosity using the term heterozygous (GENO:0000135)." />
+      <min value="0" />
+      <max value="1" />
+      <sliceName value="zygosity" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="OntologyClass" />
+      </type>
+    </element>
+
+    <element id="Basic.extension:background">
+      <path value="Basic.extension" />
+      <label value="Basic.extension.background"/>
+      <short value="Optional background string for mouse models of disease" />
+      <definition value="Phenopackets that describe mouse models of disease should report the genetic background, using a string such as involves: 129S1/Sv * 129X1/SvJ * C57BL/6J. We expect that this element will be used mainly for Phenopackets for animal models." />
+      <min value="0" />
+      <max value="1" />
+      <sliceName value="background" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+
+  </differential>
+</StructureDefinition>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="geolocation" />
+  <url value="http://ga4gh.org/fhir/phenopackets/StructureDefinition/geolocation" />
+  <version value="1.0.0" />
+  <name value="Geolocation" />
+  <title value="Geolocation" />
+  <status value="draft" />
+  <description value="A GeoLocation object provides information about a geographic position related to a record. Note that the GeoLocation element can be used within a Individual element to denote a location related to a person, but it can also be used within other elements such as Experiment. In the intended use cases, the elements that are relevant to the encasing element should be chosen, and software should perform context-dependent Q/C as necessary." />
+  <fhirVersion value="4.0.0" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Location"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Location"/>
+  <differential>
+
+    <element id="Location.extension">
+      <path value="Location.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    
+    <element id="Location.extension:label">
+      <path value="Location.extension" />
+      <label value="Location.extension.label"/>
+      <short value="A text representation of the geolocation using standard geographic identification elements" />
+      <definition value="The label is a text representation, preferably using standard geographic identification elements, of the corresponding geolocation. This representation serves to capture standard data entry parameters, and provide a sanity check for latitude, longitude values. e.g. '34 Washington Blvd, Marina del Rey, CA 90292, United States'" />
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="label" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+
+    <element id="Location.extension:precision">
+      <path value="Location.extension" />
+      <label value="Location.extension.precision"/>
+      <short value="Indicate the maximum precision to be derived from latitude and longitude values" />
+      <definition value="This element is an optional indication of the maximum precision to be derived from the latitude and longitude values. For example, given a street address such as “Winterthurerstrasse 190, 8057 Zürich, Switzerland”, a privacy driven (destructive) obfuscation approach could recode this to “latitude”: 47.37, “longitude”: 8.54, while providing “precision”:”city”, “label”: “Zürich, Switzerland”, indicating that the original location could correspond to any latitude,longitude point value inside the administrative boundaries of the city of Zürich, Switzerland. The implementation and interpretation of this field is application-dependent." />
+      <min value="0" />
+      <max value="1" />
+      <sliceName value="precision" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+
+    <element id="Location.extension:latitude">
+      <path value="Location.extension" />
+      <label value="Location.extension.latitude"/>
+      <short value="Latitude" />
+      <definition value="This element represents signed decimal degrees (North, relative to Equator)" />
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="latitude" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="decimal" />
+      </type>
+    </element>
+
+    <element id="Location.extension:longitude">
+      <path value="Location.extension" />
+      <label value="Location.extension.longitude"/>
+      <short value="Longitude" />
+      <definition value="This element represents signed decimal degrees (East, relative to the IERS Reference Meridian)" />
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="longitude" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="decimal" />
+      </type>
+    </element>
+
+    <element id="Location.extension:altitude">
+      <path value="Location.extension" />
+      <label value="Location.extension.altitude"/>
+      <short value="Altitude" />
+      <definition value="This is an optional element that may be used in case a sample was collected above the surface of the earth, for example, for environmental analysis" />
+      <min value="0" />
+      <max value="1" />
+      <sliceName value="altitude" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="decimal" />
+      </type>
+    </element>
+
+  </differential>
+</StructureDefinition>

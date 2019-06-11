@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="pedigree" />
+  <url value="http://ga4gh.org/fhir/phenopackets/StructureDefinition/pedigree" />
+  <version value="1.0.0" />
+  <name value="Pedigree" />
+  <title value="Pedigree" />
+  <status value="draft" />
+  <description value="This element is used to represent a pedigree file (PRD file). A PED file (“pedigree file”) describes the family relationships of each sample along with their gender and phenotype. PED files are typically used by software for genetic linkage analysis. PED files have six mandatory columns, and additional optional columns (that are typically not used in the context of genomic analysis). This message represents the core Ped file information that is used by many programs for analysis of a multi-sample VCF file with exome or genome sequences of members of a family, some of whom are affected by a Mendelian disease." />
+  <fhirVersion value="4.0.0" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Basic"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Basic"/>
+  <differential>
+
+    <element id="Basic.extension">
+      <path value="Basic.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    
+    <element id="Basic.extension:persons">
+      <path value="Basic.extension" />
+      <label value="Basic.extension.persons"/>
+      <short value="List of Person elements" />
+      <definition value="A Pedigree object consists of a list of Person elements, each Person is equivalent to one row of the PED file." />
+      <min value="0" />
+      <max value="*" />
+      <sliceName value="persons" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="Person" />
+      </type>
+    </element>
+
+  </differential>
+</StructureDefinition>

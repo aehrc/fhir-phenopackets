@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="external-reference" />
+  <url value="http://ga4gh.org/fhir/phenopackets/StructureDefinition/external-reference" />
+  <version value="1.0.0" />
+  <name value="ExternalReference" />
+  <title value="External Reference" />
+  <status value="draft" />
+  <description value="References a journal article to provide context and support to an assertion or piece of evidence." />
+  <fhirVersion value="4.0.0" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Reference"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Reference"/>
+  <differential>
+
+    <element id="Reference.extension">
+      <path value="Reference.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    
+    <element id="Reference.extension:id">
+      <path value="Reference.extension" />
+      <label value="Reference.extension.id"/>
+      <short value="External reference unique identifier" />
+      <definition value="A unique identifier which refers to a journal article. e.g. 'PMID:29165655'" />
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="id" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="id" />
+      </type>
+    </element>
+
+    <element id="Reference.extension:description">
+      <path value="Reference.extension" />
+      <label value="Reference.extension.description" />
+      <short value="Description of journal article" />
+      <definition value="Optional description of journal article"/>
+      <min value="0" />
+      <max value="1" />
+      <sliceName value="description" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

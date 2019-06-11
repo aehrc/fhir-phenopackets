@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="evidence" />
+  <url value="http://ga4gh.org/fhir/phenopackets/StructureDefinition/evidence" />
+  <version value="1.0.0" />
+  <name value="Evidence" />
+  <title value="Evidence" />
+  <status value="draft" />
+  <description value="This element intends to represent the evidence for an assertion such as an observation of a PhenotypicFeature element. We recommend the use of terms from the Evidence and Conclusion Ontology (ECO)" />
+  <fhirVersion value="4.0.0" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Evidence"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Evidence"/>
+  <differential>
+
+    <element id="Evidence.extension">
+      <path value="Evidence.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    
+    <element id="Evidence.extension:evidence_code">
+      <path value="Evidence.extension" />
+      <label value="Evidence.extension.evidence_code"/>
+      <short value="Describes the evidence for a phenotypic observation." />
+      <definition value="This attribute describes the evidence for a phenotypic observation as an OntologyClass. For example, 'ECO:0006017' represents an author statement from published clinical study used in manual assertion." />
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="evidence_code" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="OntologyClass" />
+      </type>
+    </element>
+
+    <element id="Evidence.extension:reference">
+      <path value="Evidence.extension" />
+      <label value="Evidence.extension.reference" />
+      <short value="Optional external reference to publication that supports the reference." />
+      <definition value="This attribute stores a reference to the publication that supports the evidence, formatted as an ExternalReference."/>
+      <min value="0" />
+      <max value="1" />
+      <sliceName value="reference" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="ExternalReference" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

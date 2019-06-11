@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="resource" />
+  <url value="http://ga4gh.org/fhir/phenopackets/StructureDefinition/resource" />
+  <version value="1.0.0" />
+  <name value="Resource" />
+  <title value="Resource" />
+  <status value="draft" />
+  <description value="The Resource element is a description of an external resource used for referencing an object. For example the resource may be an ontology such as the HPO or SNOMED. The Metadata element uses one resource element to describe each ontology that is referenced in the Phenopacket." />
+  <fhirVersion value="4.0.0" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="CodeSystem"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/CodeSystem"/>
+  <differential>
+
+    <element id="CodeSystem.extension">
+      <path value="CodeSystem.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    
+    <element id="CodeSystem.extension:id">
+      <path value="CodeSystem.extension" />
+      <label value="CodeSystem.extension.id"/>
+      <short value="The ontology service that contains this resource" />
+      <definition value="For OBO Ontologies, the value of this string MUST always be the official OBO ID, which is always equivalent to the ID prefix in lower case. Examples: hp, go, mp, mondo Consult http://obofoundry.org for a complete list For other ontologies (e.g. SNOMED), use the prefix in identifiers.org." />
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="id" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="id" />
+      </type>
+    </element>
+
+    <element id="CodeSystem.extension:name">
+      <path value="CodeSystem.extension" />
+      <label value="CodeSystem.extension.name"/>
+      <short value="The name of the ontology referred to by the id" />
+      <definition value="The name of the ontology refered to by the id element, for example, The Human Phenotype Ontology. For OBO Ontologies, the value of this string SHOULD be the same as the title field on http://obofoundry.org however, this field is purely for information purposes and software should not encode any assumptions." />
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="name" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+
+    <element id="CodeSystem.extension:namespace_prefix">
+      <path value="CodeSystem.extension" />
+      <label value="CodeSystem.extension.namespace_prefix"/>
+      <short value="The prefix used in the CURIE of an OntologyClass" />
+      <definition value="The prefix used in the CURIE of an OntologyClass e.g. HP, MP, ECO or example an HPO term will have a CURIE like this - HP:0012828 which should be used in combination with the iri_prefix to form a fully-resolvable IRI." />
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="namespace_prefix" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+
+    <element id="CodeSystem.extension:url">
+      <path value="CodeSystem.extension" />
+      <label value="CodeSystem.extension.url"/>
+      <short value="The URL to the ontology" />
+      <definition value="For OBO ontologies, this should always be the PURL, e.g. http://purl.obolibrary.org/obo/hp.owl, http://purl.obolibrary.org/obo/hp.obo." />
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="url" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+
+    <element id="CodeSystem.extension:version">
+      <path value="CodeSystem.extension" />
+      <label value="CodeSystem.extension.version"/>
+      <short value="The version of the resource or ontology used to make the annotation" />
+      <definition value="The version of the resource or ontology used to make the annotation. For OBO ontologies, this should be the versionIRI." />
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="version" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+
+    <element id="CodeSystem.extension:iri_prefix">
+      <path value="CodeSystem.extension" />
+      <label value="CodeSystem.extension.iri_prefix"/>
+      <short value="The full IRI prefix which can be used with the namespace_prefix and the OntologyClass::id to resolve an IRI for a term" />
+      <definition value="The full IRI prefix which can be used with the namespace_prefix and the OntologyClass::id to resolve to an IRI for a term. Tools such as the curie-util (https://github.com/prefixcommons/curie-util) can utilise this to produce fully-resolvable IRIs for an OntologyClass. For example, using the HPO term encoding the concept of ‘Severe’ (which corresponds to HP:0012828), and the iri_prefix http://purl.obolibrary.org/obo/HP_, the term can be resolved to http://purl.obolibrary.org/obo/HP_0012828." />
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="iri_prefix" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+
+  </differential>
+</StructureDefinition>

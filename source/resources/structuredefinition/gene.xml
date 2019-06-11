@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="gene" />
+  <url value="http://ga4gh.org/fhir/phenopackets/StructureDefinition/gene" />
+  <version value="1.0.0" />
+  <name value="Gene" />
+  <title value="Gene" />
+  <status value="draft" />
+  <description value="Represents an identifier for a gene. It can be used to transmit the information that the gene is thought to play a causative role in the disease phenotypes being described in cases where the exact variant cannot be transmitted, either for privacy reasons or because it is unknown." />
+  <fhirVersion value="4.0.0" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Basic"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Basic"/>
+  <differential>
+
+    <element id="Basic.extension">
+      <path value="Basic.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    
+    <element id="Basic.extension:id">
+      <path value="Basic.extension" />
+      <label value="Basic.extension.id"/>
+      <short value="An accession number identifier for the gene" />
+      <definition value="The id represents an accession number identifier for the gene. It is often a CURIE with a prefix that is NCBIGene, HGNC, ENSEMBL, UCSC e.g. HGNC:347. The id may also be of the format ENSG00000120705, uc003ldc.6." />
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="id" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="id" />
+      </type>
+    </element>
+
+    <element id="Basic.extension:symbol">
+      <path value="Basic.extension" />
+      <label value="Basic.extension.symbol" />
+      <short value="Offical gene symbol" />
+      <definition value="The official gene symbol as designated by the organism gene nomenclature committee. e.g. 'ETF1'"/>
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="symbol" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+
+  </differential>
+</StructureDefinition>

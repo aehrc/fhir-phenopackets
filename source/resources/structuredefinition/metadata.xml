@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="metadata" />
+  <url value="http://ga4gh.org/fhir/phenopackets/StructureDefinition/metadata" />
+  <version value="1.0.0" />
+  <name value="Metadata" />
+  <title value="Metadata" />
+  <status value="draft" />
+  <description value="Contains structured definitions of the resources and ontologies used within the phenopacket. It is considered to be a required element of a valid Phenopacket and application Q/C software should check this." />
+  <fhirVersion value="4.0.0" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Basic"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Basic"/>
+  <differential>
+
+    <element id="Basic.extension">
+      <path value="Basic.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    
+    <element id="Basic.extension:created">
+      <path value="Basic.extension" />
+      <label value="Basic.extension.created"/>
+      <short value="Timestamp for when this phenopacket was created" />
+      <definition value="This element is a ISO8601 UTC timestamp for when this phenopacket was created. e.g. '2018-03-01T00:00:00Z'" />
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="created" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+
+    <element id="Basic.extension:created_by">
+      <path value="Basic.extension" />
+      <label value="Basic.extension.created_by"/>
+      <short value="Identifier for contributor to the phenopacket" />
+      <definition value="A string that represents an identifier for the contributor/program. The expected syntax and semantics are application-dependent" />
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="created_by" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+
+    <element id="Basic.extension:resources">
+      <path value="Basic.extension" />
+      <label value="Basic.extension.resources"/>
+      <short value="A listing of ontologies/resources referenced in the phenopacket" />
+      <definition value="This element contains a listing of the ontologies/resources referenced in the phenopacket" />
+      <min value="1" />
+      <max value="*" />
+      <sliceName value="resources" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="Resource" />
+      </type>
+    </element>
+
+  </differential>
+</StructureDefinition>

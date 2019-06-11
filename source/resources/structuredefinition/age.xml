@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="age" />
+  <url value="http://ga4gh.org/fhir/phenopackets/StructureDefinition/age" />
+  <version value="1.0.0" />
+  <name value="Age" />
+  <title value="Age" />
+  <status value="draft" />
+  <description value="This element allows the age of the subject to be encoded in several different ways that support different use cases." />
+  <fhirVersion value="4.0.0" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Basic"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Basic"/>
+  <differential>
+
+    <element id="Basic.extension">
+      <path value="Basic.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    
+    <element id="Basic.extension:age">
+      <path value="Basic.extension" />
+      <label value="Basic.extension.age"/>
+      <short value="An ISO8601 duration string or time interval indicating age." />
+      <definition value="Age can be represented as an ISO8601 duration or time interval string. eg '2007-03-01T13:00:00Z/2008-05-11T15:30:00Z' indicates duration using a start and end time." />
+      <min value="0" />
+      <max value="1" />
+      <sliceName value="age" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+
+    <element id="Basic.extension:age_class">
+      <path value="Basic.extension" />
+      <label value="Basic.extension.age_class" />
+      <short value="An ontological term used to represent age, formatted as an OntologyClass object." />
+      <definition value="Age can also be represented as an ontological term rather than an ISO8601 time interval. For instance, 'HsapDv:0000236 - second decade human stage' and 'HsapDv:0000255 - 114 year old human stage' are vaild age class identifiers under the Human Developmental Stages Ontology."/>
+      <min value="0" />
+      <max value="1" />
+      <sliceName value="age_class" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="OntologyClass" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>
