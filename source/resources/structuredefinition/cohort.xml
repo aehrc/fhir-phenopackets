@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="cohort" />
+  <url value="http://ga4gh.org/fhir/phenopackets/StructureDefinition/cohort" />
+  <version value="1.0.0" />
+  <name value="Cohort" />
+  <title value="Cohort" />
+  <status value="draft" />
+  <description value="This element describes a group of individuals related in some phenotypic or genotypic aspect. It can be used to describe a group of individuals being investigated in a genome-wide analysis study. We recommend using the Family element to describe families being investigated for the presence of a Mendelian disease." />
+  <fhirVersion value="4.0.0" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Group"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Group"/>
+  <differential>
+
+    <element id="Group.extension">
+      <path value="Group.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    
+    <element id="Group.extension:id">
+      <path value="Group.extension" />
+      <label value="Group.extension.id"/>
+      <short value="Cohort identifier" />
+      <definition value="The id is an identifier specific for this cohort. The syntax of the identifier is application specific." />
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="id" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="id" />
+      </type>
+    </element>
+
+    <element id="Group.extension:description">
+      <path value="Group.extension" />
+      <label value="Group.extension.description"/>
+      <short value="Cohort description" />
+      <definition value="Any information relevant to the study can be added here as free text." />
+      <min value="0" />
+      <max value="1" />
+      <sliceName value="description" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+
+    <element id="Group.extension:members">
+      <path value="Group.extension" />
+      <label value="Group.extension.members"/>
+      <short value="All members/participants in the cohort" />
+      <definition value="All members/participants in the cohort, each represented as a Phenopacket object. One Phenopacket is included for each member of the cohort." />
+      <min value="1" />
+      <max value="*" />
+      <sliceName value="members" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="Phenopacket" />
+      </type>
+    </element>
+
+    <element id="Group.extension:hts_files">
+      <path value="Group.extension" />
+      <label value="Group.extension.hts_files"/>
+      <short value="List of HtsFiles relevant to the cohort" />
+      <definition value="This element contains a list of pointers to the relevant HTS file(s) for the cohort. Each element describes what type of file is meant (e.g., BAM file), which genome assembly was used for mapping, as well as a map of samples and individuals represented in that file. It also contains a File element which optionally refers to a file on a given file system or can be a URI that refers to a resource on the web. See File and HtsFile for further information." />
+      <min value="0" />
+      <max value="*" />
+      <sliceName value="hts_files" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="HtsFile" />
+      </type>
+    </element>
+
+    <element id="Group.extension:meta_data">
+      <path value="Group.extension" />
+      <label value="Group.extension.meta_data"/>
+      <short value="Structured definitions of resources and ontologies used within the phenopacket" />
+      <definition value="This element contains structured definitions of the resources and ontologies used within the phenopacket. It is expected that every valid Phenopacket contains a metaData element. See Metadata for further information." />
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="meta_data" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="Metadata" />
+      </type>
+    </element>
+
+  </differential>
+</StructureDefinition>

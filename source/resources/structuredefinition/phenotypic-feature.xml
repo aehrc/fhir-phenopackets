@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="phenotypic-feature" />
+  <url value="http://ga4gh.org/fhir/phenopackets/StructureDefinition/phenotypic-feature" />
+  <version value="1.0.0" />
+  <name value="PhenotypicFeature" />
+  <title value="Phenotypic Feature" />
+  <status value="draft" />
+  <description value="This element is intended to be used to describe a phenotype that characterizes the subject of the Phenopacket. For medical use cases the subject will generally be a patient or a proband of a study, and the phenotypes will be abnormalities described by an ontology such as the Human Phenotype Ontology. The word phenotype is used with many different meanings including disease entity, but in this context we mean An individual phenotypic feature, observed as either present or absent (negated), with possible onset, modifiers and frequency." />
+  <fhirVersion value="4.0.0" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+  <differential>
+
+    <element id="Observation.extension">
+      <path value="Observation.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    
+    <element id="Observation.extension:description">
+      <path value="Observation.extension" />
+      <label value="Observation.extension.description"/>
+      <short value="Free text description of the phenotype" />
+      <definition value="This element represents a free-text description of the phenotype. It should not be used as the primary means of describing the phenotype, but can be used to supplement the record if ontology terms are not sufficiently able to capture all the nuances. In general, the type and onset etc… fields should be used for this purpose, and this field is a last resort." />
+      <min value="0" />
+      <max value="1" />
+      <sliceName value="description" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+
+    <element id="Observation.extension:type">
+      <path value="Observation.extension" />
+      <label value="Observation.extension.type"/>
+      <short value="The primary OntologyClass which describes the phenotype." />
+      <definition value="This element represents the primary ontology class which describes the phenotype. For example, 'Craniosynostosis' (HP:0001363)." />
+      <min value="0" />
+      <max value="1" />
+      <sliceName value="type" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="OntologyClass" />
+      </type>
+    </element>
+
+    <element id="Observation.extension:negated">
+      <path value="Observation.extension" />
+      <label value="Observation.extension.negated"/>
+      <short value="Indicates whether the phenotype was observed or not" />
+      <definition value="This element is a flag to indicate whether the phenotype was observed or not. The default is ‘false’, in other words the phenotype was observed. Therefore it is only required in cases to indicate that the phenotype was looked for, but found to be absent." />
+      <min value="0" />
+      <max value="1" />
+      <sliceName value="negated" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="boolean" />
+      </type>
+    </element>
+
+    <element id="Observation.extension:severity">
+      <path value="Observation.extension" />
+      <label value="Observation.extension.severity"/>
+      <short value="An OntologyClass that describes the severity of the condition" />
+      <definition value="This element is an ontology class that describes the severity of the condition e.g. subclasses of 'Severity' (HP:0012824) or SNOMED:272141005-Severities" />
+      <min value="0" />
+      <max value="1" />
+      <sliceName value="severity" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="OntologyClass" />
+      </type>
+    </element>
+
+    <element id="Observation.extension:modifiers">
+      <path value="Observation.extension" />
+      <label value="Observation.extension.modifiers"/>
+      <short value="List of OntologyClass objects that provide a more precise description of the phenotypic feature." />
+      <definition value="This element is a list of ontology class elements that can be empty or contain one or more ontology terms that are intended to provide more expressive or precise descriptions of a phenotypic feature, including attributes such as positionality and external factors that tend to trigger or ameliorate the feature. Terms can be taken from the hierarchy of Clinical modifier in the HPO (noting that severity should be coded in the severity element)." />
+      <min value="0" />
+      <max value="*" />
+      <sliceName value="modifiers" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="OntologyClass" />
+      </type>
+    </element>
+
+    <element id="Observation.extension:age_of_onset">
+      <path value="Observation.extension" />
+      <label value="Observation.extension.age_of_onset"/>
+      <short value="The time at which the phenotypic feature was first noticed or diagnosed." />
+      <definition value="The time at which the phenotypic feature was first noticed or diagnosed, formatted as an Age object. Only one of age_of_onset, time_of_onset, period_of_onset, or class_of_onset is required." />
+      <min value="0" />
+      <max value="1" />
+      <sliceName value="age_of_onset" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="Age" />
+      </type>
+    </element>
+
+    <element id="Observation.extension:time_of_onset">
+      <path value="Observation.extension" />
+      <label value="Observation.extension.time_of_onset"/>
+      <short value="The time at which the phenotypic feature was first noticed or diagnosed." />
+      <definition value="The time at which the phenotypic feature was first noticed or diagnosed, formatted as a timestamp. Only one of age_of_onset, time_of_onset, period_of_onset, or class_of_onset is required." />
+      <min value="0" />
+      <max value="1" />
+      <sliceName value="time_of_onset" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+
+    <element id="Observation.extension:period_of_onset">
+      <path value="Observation.extension" />
+      <label value="Observation.extension.period_of_onset"/>
+      <short value="The time at which the phenotypic feature was first noticed or diagnosed." />
+      <definition value="The time at which the phenotypic feature was first noticed or diagnosed, formatted as a Period object. Only one of age_of_onset, time_of_onset, period_of_onset, or class_of_onset is required." />
+      <min value="0" />
+      <max value="1" />
+      <sliceName value="period_of_onset" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="Period" />
+      </type>
+    </element>
+
+    <element id="Observation.extension:class_of_onset">
+      <path value="Observation.extension" />
+      <label value="Observation.extension.class_of_onset"/>
+      <short value="The time at which the phenotypic feature was first noticed or diagnosed." />
+      <definition value="The time at which the phenotypic feature was first noticed or diagnosed, formatted as an OntologyClass object. Only one of age_of_onset, time_of_onset, period_of_onset, or class_of_onset is required." />
+      <min value="0" />
+      <max value="1" />
+      <sliceName value="class_of_onset" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="OntologyClass" />
+      </type>
+    </element>
+
+    <element id="Observation.extension:evidence">
+      <path value="Observation.extension" />
+      <label value="Observation.extension.evidence"/>
+      <short value="List of Evidence objects that specify how the phenotype was determined" />
+      <definition value="This element can contain one or more Evidence elements that specify how the phenotype was determined." />
+      <min value="0" />
+      <max value="*" />
+      <sliceName value="evidence" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="Evidence" />
+      </type>
+    </element>
+
+  </differential>
+</StructureDefinition>

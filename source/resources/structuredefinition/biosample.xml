@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="biosample" />
+  <url value="http://ga4gh.org/fhir/phenopackets/StructureDefinition/biosample" />
+  <version value="1.0.0" />
+  <name value="Biosample" />
+  <title value="Biosample" />
+  <status value="draft" />
+  <description value="A Biosample refers to a unit of biological material from which the substrate molecules (e.g. genomic DNA, RNA, proteins) for molecular analyses (e.g. sequencing, array hybridisation, mass-spectrometry) are extracted. Examples would be a tissue biopsy, a single cell from a culture for single cell genome sequencing or a protein fraction from a gradient centrifugation. Several instances (e.g. technical replicates) or types of experiments (e.g. genomic array as well as RNA-seq experiments) may refer to the same Biosample." />
+  <fhirVersion value="4.0.0" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Specimen"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
+  <differential>
+
+    <element id="Specimen.extension">
+      <path value="Specimen.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    
+    <element id="Specimen.extension:id">
+      <path value="Specimen.extension" />
+      <label value="Specimen.extension.id"/>
+      <short value="Biosample id" />
+      <definition value="The Biosample id. This is unique in the context of the server instance." />
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="id" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="id" />
+      </type>
+    </element>
+
+    <element id="Specimen.extension:dataset_id">
+      <path value="Specimen.extension" />
+      <label value="Specimen.extension.dataset_id"/>
+      <short value="The ID of the dataset this Biosample belongs to" />
+      <definition value="The ID of the dataset this Biosample belongs to." />
+      <min value="0" />
+      <max value="1" />
+      <sliceName value="dataset_id" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="id" />
+      </type>
+    </element>
+
+    <element id="Specimen.extension:individual_id">
+      <path value="Specimen.extension" />
+      <label value="Specimen.extension.individual_id"/>
+      <short value="The id of the individual this biosample was derived from." />
+      <definition value="The id of the individual this biosample was derived from. It is not necessary to provide this information here if the Biosample is being transmitted as a part of a Phenopacket." />
+      <min value="0" />
+      <max value="1" />
+      <sliceName value="individual_id" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="id" />
+      </type>
+    </element>
+
+    <element id="Specimen.extension:description">
+      <path value="Specimen.extension" />
+      <label value="Specimen.extension.description"/>
+      <short value="Description of the biosample" />
+      <definition value="The biosample's description. This attribute contains human readable text, and should not contain any structured data." />
+      <min value="0" />
+      <max value="1" />
+      <sliceName value="description" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+
+    <element id="Specimen.extension:sampled_tissue">
+      <path value="Specimen.extension" />
+      <label value="Specimen.extension.sampled_tissue"/>
+      <short value="An Ontology Class describing the tissue from which the specimen was collected" />
+      <definition value="An Ontology Class describing the tissue from which the specimen was collected. We recommend the use of UBERON." />
+      <min value="1" />
+      <max value="1" />
+      <sliceName value="sampled_tissue" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="OntologyClass" />
+      </type>
+    </element>
+
+    <element id="Specimen.extension:phenotypic_features">
+      <path value="Specimen.extension" />
+      <label value="Specimen.extension.phenotypic_features"/>
+      <short value="The phenotypic characteristics of the Biosample" />
+      <definition value="The phenotypic characteristics of the Biosample, for example histological findings of a biopsy. See PhenotypicFeature for further information" />
+      <min value="0" />
+      <max value="*" />
+      <sliceName value="phenotypic_features" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="PhenotypicFeature" />
+      </type>
+    </element>
+
+    <element id="Specimen.extension:taxonomy">
+      <path value="Specimen.extension" />
+      <label value="Specimen.extension.taxonomy"/>
+      <short value="Taxonomic identifier of the organism being studied" />
+      <definition value="For resources where there may be more than one organism being studied, it is advisable to indicate the taxonomic identifier of that organism to its most specific level. We advise using the codes from the NCBI Taxonomy resource. For instance, 'NCBITaxon:9606' is human (homo sapiens sapiens), and 'NCBITaxon:9615' is dog." />
+      <min value="0" />
+      <max value="1" />
+      <sliceName value="taxonomy" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="OntologyClass" />
+      </type>
+    </element>
+
+    <element id="Specimen.extension:individual_age_at_collection">
+      <path value="Specimen.extension" />
+      <label value="Specimen.extension.individual_age_at_collection"/>
+      <short value="The age of the individual this biosample was derived from at time of collection" />
+      <definition value="An Age object describing the age of the individual this biosample was derived from at the time of collection. See Age for further information." />
+      <min value="0" />
+      <max value="1" />
+      <sliceName value="individual_age_at_collection" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="Age" />
+      </type>
+    </element>
+
+    <element id="Specimen.extension:histological_diagnosis">
+      <path value="Specimen.extension" />
+      <label value="Specimen.extension.histological_diagnosis"/>
+      <short value="The pathologist's diagnosis" />
+      <definition value="This is the pathologist’s diagnosis and may often represent a refinement of the clinical diagnosis (which could be reported in the Phenopacket that contains this Biosample). Normal samples would be tagged with the term 'NCIT:C38757', 'Negative Finding'. See Ontology Class for further information." />
+      <min value="0" />
+      <max value="1" />
+      <sliceName value="histological_diagnosis" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="OntologyClass" />
+      </type>
+    </element>
+
+    <element id="Specimen.extension:tumor_progression">
+      <path value="Specimen.extension" />
+      <label value="Specimen.extension.tumor_progression"/>
+      <short value="The tumor progression, formatted as an OntologyClass object" />
+      <definition value="The tumor progression, formatted as an OntologyClass object. Specifies whether the specimen was derived from a primary tumor, metastasis, or recurrence." />
+      <min value="0" />
+      <max value="1" />
+      <sliceName value="tumor_progression" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="OntologyClass" />
+      </type>
+    </element>
+
+    <element id="Specimen.extension:tumor_grade">
+      <path value="Specimen.extension" />
+      <label value="Specimen.extension.tumor_grade"/>
+      <short value="The tumor grade, a measure of how well differentiated the tumor cells are." />
+      <definition value="The tumor grade, a measure of how well differentiated the tumor cells are, formatted as an OntologyClass object. Low grade tumors are well differentiated and expected to grow slowly. High grade tumors are poorly differentiated and are associated with malignancy." />
+      <min value="0" />
+      <max value="1" />
+      <sliceName value="tumor_grade" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="OntologyClass" />
+      </type>
+    </element>
+
+    <element id="Specimen.extension:tumor_stage">
+      <path value="Specimen.extension" />
+      <label value="Specimen.extension.tumor_stage"/>
+      <short value="Tumor stage, formatted as OntologyClass objects" />
+      <definition value="Cancer findings in the TNM system that is relevant to the diagnosis of cancer. This element should be derived from child terms of NCIT:C48232 (Cancer TNM Finding) or equivalent." />
+      <min value="0" />
+      <max value="*" />
+      <sliceName value="tumor_stage" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="OntologyClass" />
+      </type>
+    </element>
+
+    <element id="Specimen.extension:diagnostic_markers">
+      <path value="Specimen.extension" />
+      <label value="Specimen.extension.diagnostic_markers"/>
+      <short value="List of clinically relevant biomarkers, formatted as OntologyClass objects" />
+      <definition value="Clinically relevant bio markers. Most of the assays such as immunohistochemistry (IHC) are covered by the NCIT under the sub-hierarchy NCIT:C25294 (Laboratory Procedure), e.g. NCIT:C68748 (HER2/Neu Positive), NCIT:C131711 (Human Papillomavirus-18 Positive)." />
+      <min value="0" />
+      <max value="*" />
+      <sliceName value="diagnostic_markers" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="OntologyClass" />
+      </type>
+    </element>
+
+    <element id="Specimen.extension:procedure">
+      <path value="Specimen.extension" />
+      <label value="Specimen.extension.procedure"/>
+      <short value="The clinical procedure performed on the subject in order to extract the biosample" />
+      <definition value="The clinical procedure performed on the subject in order to extract the biosample, formatted as a Procedure object. See Procedure for more information." />
+      <min value="0" />
+      <max value="1" />
+      <sliceName value="procedure" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="Procedure" />
+      </type>
+    </element>
+
+    <element id="Specimen.extension:hts_files">
+      <path value="Specimen.extension" />
+      <label value="Specimen.extension.hts_files"/>
+      <short value="List of pointers to the relevant HTS file(s) for the biosample." />
+      <definition value="This element contains a list of pointers to the relevant HTS file(s) for the biosample. Each element describes what type of file is meant (e.g., BAM file), which genome assembly was used for mapping, as well as a map of samples and individuals represented in that file. It also contains a File element which optionally refers to a file on a given file system or can be a URI that refers to a resource on the web. See File and HtsFile for further information." />
+      <min value="0" />
+      <max value="*" />
+      <sliceName value="hts_files" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="HtsFile" />
+      </type>
+    </element>
+
+    <element id="Specimen.extension:variants">
+      <path value="Specimen.extension" />
+      <label value="Specimen.extension.variants"/>
+      <short value="List of candidate variants or diagnosed causative variants." />
+      <definition value="This is a field for genetic variants and can be used for listing either candidate variants or diagnosed causative variants. If this biosample represents a cancer specimen, the variants might refer to somatic variants identified in the biosample. The resources using these fields should define what this represents in their context. See Variant element for further information." />
+      <min value="0" />
+      <max value="*" />
+      <sliceName value="variants" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="Variant" />
+      </type>
+    </element>
+
+    <element id="Specimen.extension:bool_is_control_sample">
+      <path value="Specimen.extension" />
+      <label value="Specimen.extension.bool_is_control_sample"/>
+      <short value="Indicates if the sample is being used as a normal control" />
+      <definition value="A boolean (true/false) value. If true, this sample is being use as a normal control, often in combination with another sample that is thought to contain a pathological finding. The default value is false." />
+      <min value="0" />
+      <max value="1" />
+      <sliceName value="bool_is_control_sample" />
+      <sliceIsConstraining value="false" />
+      <type>
+        <code value="boolean" />
+      </type>
+    </element>
+
+  </differential>
+</StructureDefinition>

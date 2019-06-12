@@ -110,6 +110,12 @@
         </resource>
         <resource>
             <reference>
+                <reference value="StructureDefinition/phenotypic-feature"/>
+                <display value="Phenotypic Feature"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
                 <reference value="StructureDefinition/procedure"/>
                 <display value="Procedure"/>
             </reference>
@@ -154,6 +160,24 @@
             <reference>
                 <reference value="StructureDefinition/murine-allele"/>
                 <display value="Murine Allele"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/family"/>
+                <display value="Family"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/cohort"/>
+                <display value="Cohort"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/biosample"/>
+                <display value="Biosample"/>
             </reference>
         </resource>
         <resource>
